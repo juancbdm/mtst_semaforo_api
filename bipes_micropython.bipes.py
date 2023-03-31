@@ -1,4 +1,3 @@
-
 import network
 import urequests as requests
 import ujson
@@ -24,6 +23,7 @@ wifi_conn("SABAZERA_EXT","00112233445566778899")
 
 while True:
     res = requests.get('http://ec2-3-237-106-251.compute-1.amazonaws.com/')
+    print(res.text)
     parsed = ujson.loads(""+res.text+"")
     parseds = ujson.loads(""+parsed+"")
     parsedVal = parseds["valueS"]
@@ -55,7 +55,3 @@ while True:
     else:
         res.close()
         break;
-        
-    
-
-
