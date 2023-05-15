@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apptest
+  namespace: prod
+  labels:
+    app: apptest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apptest
+  template:
+    metadata:
+      labels:
+        app: apptest
+    spec:
+      containers:
+      - name: apptest
+        image: juancbdm/simpleserver_mtst_socrates:latest
+        ports:
+        - containerPort: 80
